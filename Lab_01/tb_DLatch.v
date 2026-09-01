@@ -34,7 +34,7 @@ module tb_DLatch();
             12: {ctr, D, EN} = 7'b0110101;
             13: {ctr, D, EN} = 7'b0111011;
             14: {ctr, D, EN} = 7'b0111111;
-            15: {ctr, D, EN} = 7'b10
+            15: {ctr, D, EN} = 7'b1000011;
             16: {ctr, D, EN} = 7'b1000101;
             17: {ctr, D, EN} = 7'b1001000;
             18: {ctr, D, EN} = 7'b1001110;
