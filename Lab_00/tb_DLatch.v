@@ -1,18 +1,20 @@
 `timescale 1ns / 1ps
-/* After running the simulation, if you do not see "Testbench
-Complete" on the console, then increase simulation time to
-Say 10000 ns */
+
+// After running the simulation, if you do not see "Testbench Complete"
+// on the console, then increase simulation timeout to, say, 10000ns.
 module tb_DLatch();
     reg D, EN;
     wire Q, Q_N;
     reg [4:0] ctr;
     DLatch uut(D, EN, Q, Q_N);
+
     // The initial block runs procedural code before anything else runs.
     initial begin
         $display("Testbench start");
         $display("D EN|Q Qn");
         {ctr, D, EN} = 7'b000000;
     end
+
     // The always block executes procedural (line-by-line) code.
     always begin
         #10;

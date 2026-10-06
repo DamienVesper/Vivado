@@ -1,4 +1,5 @@
-    `timescale 1ns / 1ps
+`timescale 1ns / 1ps
+
 module tb_DFFv1();
     reg D, CLK;
     reg [3:0] V; // V is a 4-bit register: 3 2 1 0 are the 4 bit positions.
