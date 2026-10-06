@@ -1,17 +1,17 @@
 `timescale 1ns / 1ps
 
 module tb_ctr_5bsup();
-    reg CLK, RESET_N;
+    reg CLK, RST_N;
     reg [5:0] V; // V is a 6-bit register: 5 4 3 2 1 0 are the 6 bit positions.
     wire A, B, C, D, E;
 
-    ctr_5bsup uut(CLK, RESET_N, A, B, C, D, E);
+    ctr_5bsup uut(CLK, RST_N, A, B, C, D, E);
 
     // initialize inputs with an initial block.
     initial begin
         $display("Testbench start");
         $display("C R | Out");
-        {CLK, RESET_N, V} = 8'b01000000;
+        {CLK, RST_N, V} = 8'b01000000;
     end
 
     // always block runs to simulate inputs here.
@@ -19,7 +19,7 @@ module tb_ctr_5bsup();
     // must be declared as reg.
     always begin
         #10;
-        $display("%d %d | %d", CLK, RESET_N, {E, D, C, B, A});
+        $display("%d %d | %d", CLK, RST_N, {E, D, C, B, A});
 
         if (V == 63) begin //if block runs when V is 111111 (63 in dec)
             $display("Testbench end");
@@ -29,9 +29,9 @@ module tb_ctr_5bsup();
             CLK = V[0]; // Clock is the LSB of V.
 
             if (V == 4)
-                RESET_N = 0; // Reset will be 0 specifically when V is 4.
+                RST_N = 0; // Reset will be 0 specifically when V is 4.
             else
-                RESET_N = 1;
+                RST_N = 1;
         end
     end
 endmodule
