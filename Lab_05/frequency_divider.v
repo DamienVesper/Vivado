@@ -11,10 +11,12 @@ module frequency_divider (input CLKO, output wire CLKF);
     // Note carefully that this is 26 wires: 0 to 25.
     wire CLKS[CLK_COUNT:0];
 
+    // CLKS[0], or clock 0, is actually the input clock CLKO.
     assign CLKS[0] = CLKO;
 
     // to generate the 25 TFFs, a variable must be declared as a generator variable
     // here we have giv (generating iteration variable)
+    genvar i;
 
     // This variable iterates through the variables 1, 2, 3, ... 24, 25.
     // to produce TFF 1, 2, 3, ... 24, 25.
@@ -22,12 +24,9 @@ module frequency_divider (input CLKO, output wire CLKF);
     // Clock 1 will have half the frequency of clock 0.
     // Clock 2 is produced by TFF 2 and has half the frequency of clock 1.
     // Clock 25 is produced by TFF 25 and has half the frequency of clock 24.
-    for (genvar i = 1; i <= CLK_COUNT; i = i + 1) begin
+    for (i = 1; i <= CLK_COUNT; i = i + 1) begin
         TFF tffi(.T(1), .CLK(CLKS[i - 1]), .PRS_N(1), .CLR_N(1), .Q(CLKS[i]));
     end
-
-    // CLKS[0], or clock 0, is actually the input clock CLKO.
-    assign CLKS[0] = CLKO;
 
     // Finally, set CLKF to the correct clock from the 26 mentioned above. :)
     assign CLKF = CLKS[CLK_COUNT];

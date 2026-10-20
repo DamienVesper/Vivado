@@ -1,4 +1,10 @@
-module ctr_4bsdp(input EN, input CLK, input RST_N, output wire W3, output wire W2, output wire W1, output wire W0);
+module ctr_4bsdp(
+    input EN,
+    input CLK,
+    input RST_N,
+    output wire W3, W2, W1, W0
+);
+
     // You will need to create 4 TFFs in order to make this counter.
     // Reset should reset the output back to 1111.
     // Enable should stop the counter in its tracks.
@@ -9,7 +15,6 @@ module ctr_4bsdp(input EN, input CLK, input RST_N, output wire W3, output wire W
     assign T1_EN = EN & ~W0;
     assign T2_EN = EN & ~W0 & ~W1;
     assign T3_EN = EN & ~W0 & ~W1 & ~W2;
-
 
     TFF tff0(EN, CLK, RST_N, 1, W0);
     TFF tff1(T1_EN, CLK, RST_N, 1, W1);
