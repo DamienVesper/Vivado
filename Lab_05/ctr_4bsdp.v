@@ -12,6 +12,8 @@ module ctr_4bsdp(
     // If you only apply EN to one FF, the other ones may keep going.
 
     // Feel free to declare more wires in order to realize your counter.
+    wire T1_EN, T2_EN, T3_EN;
+
     assign T1_EN = EN & ~W0;
     assign T2_EN = EN & ~W0 & ~W1;
     assign T3_EN = EN & ~W0 & ~W1 & ~W2;
