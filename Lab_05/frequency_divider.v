@@ -1,4 +1,4 @@
-module frequency_divider (input CLKO, output wire CLKF);
+module frequency_divider(input CLKO, output wire CLKF);
     // This module requires the creating of 25 TFFs.
     // This is to halve the input clock signal CLKO 25 times.
     // You *could* copy-paste 25 lines of TFF module instantiation
