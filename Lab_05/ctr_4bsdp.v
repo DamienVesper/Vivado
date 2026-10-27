@@ -18,8 +18,8 @@ module ctr_4bsdp(
     assign T2_EN = EN & ~W0 & ~W1;
     assign T3_EN = EN & ~W0 & ~W1 & ~W2;
 
-    TFF tff0(EN, CLK, RST_N, 1, W0, .Q_N());
-    TFF tff1(T1_EN, CLK, RST_N, 1, W1, .Q_N());
-    TFF tff2(T2_EN, CLK, RST_N, 1, W2, .Q_N());
-    TFF tff3(T3_EN, CLK, RST_N, 1, W3, .Q_N());
+    TFF tff0(EN, CLK, RST_N, 1, W0);
+    TFF tff1(T1_EN, CLK, RST_N, 1, W1);
+    TFF tff2(T2_EN, CLK, RST_N, 1, W2);
+    TFF tff3(T3_EN, CLK, RST_N, 1, W3);
 endmodule
