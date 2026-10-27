@@ -25,6 +25,7 @@ module regfile_8_4b(
     decoder_3_8 dec (
         WADDR2,
         WADDR1,
+        WADDR0,
         WEN,
         act7,
         act6,
@@ -59,14 +60,14 @@ module regfile_8_4b(
         XRADDR2,
         XRADDR1,
         XRADDR0,
-        rq0,
-        rq1,
-        rq2,
-        rq3,
-        rq4,
-        rq5,
-        rq6,
         rq7,
+        rq6,
+        rq5,
+        rq4,
+        rq3,
+        rq2,
+        rq1,
+        rq0,
         DATA_X
     );
 
@@ -74,14 +75,14 @@ module regfile_8_4b(
         YRADDR2,
         YRADDR1,
         YRADDR0,
-        rq0,
-        rq1,
-        rq2,
-        rq3,
-        rq4,
-        rq5,
-        rq6,
         rq7,
+        rq6,
+        rq5,
+        rq4,
+        rq3,
+        rq2,
+        rq1,
+        rq0,
         DATA_Y
     );
 endmodule
